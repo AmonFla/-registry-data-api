@@ -1,0 +1,15 @@
+# @name login
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password":"4dm1n@2022"
+
+}
+
+###
+GET http://localhost:8000/api/type
+Content-Type: application/json
+Accept: application/json
+Authorization:  Bearer {{login.response.body.data.token}}

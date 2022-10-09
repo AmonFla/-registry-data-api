@@ -1,0 +1,33 @@
+# @name login
+POST http://localhost:8000/api/login
+Content-Type: application/json
+
+{
+  "email": "admin@admin.com",
+  "password":"4dm1n@2022"
+
+}
+
+###
+PUT http://localhost:8000/api/registry/1/4
+Content-Type: application/json
+Accept: application/json
+Authorization:  Bearer {{login.response.body.data.token}}
+
+{
+    "name": "name test2",
+    "description" : "description2",
+    "date_registry" : "2022-10-09 15:00:00"
+}
+
+###
+PUT http://localhost:8000/api/registry/4/3
+Content-Type: application/json
+Accept: application/json
+Authorization:  Bearer {{login.response.body.data.token}}
+
+{
+    "name": "name test",
+    "description" : "description",
+    "date_registry" : "2022-10-09 15:00:00"
+}
